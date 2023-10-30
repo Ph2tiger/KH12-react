@@ -6,7 +6,7 @@ function App() {
   return (
     <>
     <h1>각종 리엑트 예제</h1>
-
+    <hr/>
     <Exam01/>
     </>
   );
