@@ -5,7 +5,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import Jumbotron from "./components/Jumbotron";
 import { Modal } from "bootstrap/dist/js/bootstrap.esm";
 
-function App() {
+function App() {  
   //목록을 위한 state
   const [todoList, setTodoList] = useState([
     { no: 1, title: "학원가기", type: "공부" },
