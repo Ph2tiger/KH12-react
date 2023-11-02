@@ -185,7 +185,7 @@ const Exam10 = () => {
 
   //모달 닫는거
   const closeModal = () => {
-    var modal = new Modal(document.querySelector("#exampleModal"));
+    var modal = Modal.getInstance(document.querySelector("#exampleModal"));
     modal.hide();
   }
 
