@@ -27,12 +27,12 @@ const Exam07 = () => {
     //PW-RE검사
     const pwReMatch = member.memberPwRe.length === 0 ? null :
       member.memberPw.length > 0 && member.memberPw === member.memberPwRe;
-
+       
     setResult({
       memberId: idMatch,
       memberPw: pwMatch,
-      memberPwRe: pwReMatch
-    });
+      memberPwRe: pwReMatch 
+    }); 
   };
 
   //useEffect(checkMember, [member]);
