@@ -1,20 +1,45 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import {FaPenToSquare, FaTrashCan} from "react-icons/fa6";
 
 const Pocketmon = (props) => {
   const [pocketmonList, setPocketmonList] = useState([]);
-  useEffect(() => {
+
+
     //서버에서 pocketmon List를 불러와 stata에 설정하는 코드
-    axios({
-      url: "http://localhost:8080/pocketmon/",
-      method: "get"
-    })
-      .then(response => {
-        //console.log(response);
-        setPocketmonList(response.data);
+    const loadPocketmon = ()=>{
+      axios({
+          url:"http://localhost:8080/pocketmon/",
+          method:"get"
       })
-      .catch(err => { });
+      .then(response=>{
+          //console.log(response);
+          setPocketmonList(response.data);
+      })
+      .catch(err=>{});
+  };
+
+  useEffect(()=>{
+      loadPocketmon();
   }, []);
+
+  //포켓몬스터 삭제 
+  //- 이제는 state에서 삭제하는게 아니라 서버에 통신을 보낸 뒤 목록을 갱신하면 된다
+  const deletePocketmon = (pocketmon)=>{
+    const choice = window.confirm("정말 삭제하시겠습니까?");
+    if(choice === false) return;
+
+    //axios(옵션) then(성공시 실행할 함수).catch(실패시 실행할 함수);
+    axios({
+      //url:"http://localhost:8080/pocketmon/"+pocketmon.pocketmonNo
+      url:`http://localhost:8080/pocketmon/${pocketmon.no}`,
+      method:"delete"
+    })
+    .then(response=>{
+      loadPocketmon();//목록 갱신
+    })
+    .catch(err=>{})
+  };
 
   return (
     <>
@@ -42,7 +67,12 @@ const Pocketmon = (props) => {
                   <td>{pocketmon.no}</td>
                   <td>{pocketmon.name}</td>
                   <td>{pocketmon.type}</td>
-                  <td></td>
+                  <td>
+                    {/* 아이콘 자리 */}
+                    <FaPenToSquare className="text-warning"/>
+                    <FaTrashCan className="text-danger"
+                      onClick={e=>deletePocketmon(pocketmon)}/>
+                  </td>
                 </tr>
               ))}
             </tbody>
