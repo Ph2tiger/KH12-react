@@ -7,22 +7,20 @@ import Menu from "./components/Menu";
 
 function App() {
   return (
-    <div className="contanier-fluid">
+    <div className="contanier-fluid my-5 py-5">
       {/* 상단 매뉴 영역 */}
-      
-      <div>
-        
-        <Menu/>
-        
-      </div>
+           
+      <Menu/>
 
       {/* 본문 영역 */}
-      <div>
+      <div className="row">
+        <div className="col-md-10 offset-md-2 col-sm-10 offset-sm-1">
           <Routes>
             <Route exact path="/" element={<Home/>}></Route>
             <Route path="/pocketmon" element={<Pocketmon/>}></Route>
             <Route path="/book" element={<Book/>}></Route>
           </Routes>
+          </div>
       </div>
       
     </div>
