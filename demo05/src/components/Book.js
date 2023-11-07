@@ -14,7 +14,7 @@ const Book = (porps) => {
             method:"get"
         })
         .then(response=>{
-            setBookList(response.data);
+            setBookList(response.data);err
         })
         .catch(err=>{
             window.alert("통신 오류 발생");
