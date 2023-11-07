@@ -10,7 +10,7 @@ const Pocketmon = (props) => {
   //서버에서 pocketmon List를 불러와 stata에 설정하는 코드
   const loadPocketmon = () => {
     axios({
-      url: "http://localhost:8080/pocketmon/",
+      url: `${process.env.REACT_APP_REST_API_URL}/pocketmon/`,
       method: "get"
     })
       .then(response => {
@@ -33,7 +33,7 @@ const Pocketmon = (props) => {
     //axios(옵션) then(성공시 실행할 함수).catch(실패시 실행할 함수);
     axios({
       //url:"http://localhost:8080/pocketmon/"+pocketmon.pocketmonNo
-      url: `http://localhost:8080/pocketmon/${pocketmon.no}`,
+      url: `${process.env.REACT_APP_REST_API_URL}/pocketmon/${pocketmon.no}`,
       method: "delete"
     })
       .then(response => {
@@ -53,7 +53,7 @@ const Pocketmon = (props) => {
     modal.hide();
 
     clearPocketmon();
-  }
+  };
 
   //등록과 관련된 state
   const [pocketmon, setPocketmon] = useState({ name: "", type: "" });
@@ -71,7 +71,7 @@ const Pocketmon = (props) => {
   const savePocketmon = () => {
     //axios({옵션}).then(성공시콜백).catch(실패시콜백);
     axios({
-      url: "http://localhost:8080/pocketmon/",
+      url: `${process.env.REACT_APP_REST_API_URL}/pocketmon/`,
       method: "post",
       data: pocketmon
     })
@@ -97,7 +97,7 @@ const Pocketmon = (props) => {
     const {no, name, type} = pocketmon;//이거쓰면 아래처럼 수정가능
     axios({
       //url:`http://localhost:8080/pocketmon/${pocketmon.no}`,
-      url:`http://localhost:8080/pocketmon/${no}`,
+      url:`${process.env.REACT_APP_REST_API_URL}/pocketmon/${no}`,
       method:"put",
       //data:{...pocketmon}
       data:{
