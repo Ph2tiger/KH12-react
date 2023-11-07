@@ -1,5 +1,4 @@
 import { NavLink, useLocation } from "react-router-dom";
-import "bootstrap/dist/js/bootstrap"
 
 const Menu = props => {
   const location = useLocation();
@@ -20,6 +19,9 @@ const Menu = props => {
               </li>
               <li className="nav-item">
                 <NavLink className={`nav-link ${location.pathname === '/book' ? 'active' : ''}`} to="/book">책</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className={`nav-link ${location.pathname === '/book2' ? 'active' : ''}`} to="/book2">책(무한스크롤)</NavLink>
               </li>
             </ul>
           </div>

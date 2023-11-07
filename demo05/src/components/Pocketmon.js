@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { FaPenToSquare, FaTrashCan, FaPlus } from "react-icons/fa6";
-import { Modal } from "bootstrap/dist/js/bootstrap";
+import { Modal } from "bootstrap";
 
 const Pocketmon = (props) => {
   const [pocketmonList, setPocketmonList] = useState([]);

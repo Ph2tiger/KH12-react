@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client';
 //- node_modules에 설치한 요소들은 바로 이름을 사용하여 접근 가능
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootswatch/dist/cosmo/bootstrap.min.css';
+import 'bootstrap';
 
 import './index.css';
 
